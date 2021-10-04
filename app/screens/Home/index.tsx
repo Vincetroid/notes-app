@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView } from 'react-native';
+import NotePreview from '../../components/NotePreview';
 
 const Home = () => {
   return (
-    <View>
-      <Text>Home</Text>
-    </View>
+    <ScrollView>
+      <NotePreview />
+    </ScrollView>
   );
 };
 

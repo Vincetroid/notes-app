@@ -6,6 +6,8 @@ import BottomMenu from './app/screens/BottomMenu';
 import SignIn from './app/screens/SignIn';
 import SignUp from './app/screens/SignUp';
 
+console.disableYellowBox = true;
+
 const isLoggedIn = true;
 
 const RootStack = createNativeStackNavigator();
