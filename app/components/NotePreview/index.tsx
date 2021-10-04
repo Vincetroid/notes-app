@@ -46,19 +46,22 @@ const notes = [
   },
 ];
 
-const NotePreview = () =>
-  notes.map((note, i) => {
-    return (
-      <Card>
-        <Card.Title>{note.title}</Card.Title>
-        <Card.Divider />
-        <View key={i}>
-          <Text numberOfLines={3} style={styles.desc}>
-            {note.description}
-          </Text>
-        </View>
-      </Card>
-    );
-  });
+const NotePreview = (): JSX.Element => {
+  return (
+    <>
+      {notes.map((note, i) => (
+        <Card>
+          <Card.Title>{note.title}</Card.Title>
+          <Card.Divider />
+          <View key={i}>
+            <Text numberOfLines={3} style={styles.desc}>
+              {note.description}
+            </Text>
+          </View>
+        </Card>
+      ))}
+    </>
+  );
+};
 
 export default NotePreview;
