@@ -14,7 +14,11 @@ function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen name="Home" component={Home} />
-      <HomeStack.Screen name="NoteDetail" component={NoteDetail} />
+      <HomeStack.Screen
+        name="NoteDetail"
+        component={NoteDetail}
+        options={{ title: '' }}
+      />
     </HomeStack.Navigator>
   );
 }

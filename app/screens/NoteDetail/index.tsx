@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text } from 'react-native';
-import { RouteProp, useRoute } from '@react-navigation/native';
+import {
+  NavigationProp,
+  RouteProp,
+  useRoute,
+  useNavigation,
+} from '@react-navigation/native';
 
 type ParamList = {
   NoteDetail: {
@@ -10,12 +15,16 @@ type ParamList = {
 };
 
 const NoteDetail = (): JSX.Element => {
+  const navigation: NavigationProp<any> = useNavigation();
   const route = useRoute<RouteProp<ParamList, 'NoteDetail'>>();
   const { title, description } = route.params;
 
+  useEffect(() => {
+    navigation.setOptions({ title });
+  }, [title]);
+
   return (
     <View>
-      <Text>{title}</Text>
       <Text>{description}</Text>
     </View>
   );
