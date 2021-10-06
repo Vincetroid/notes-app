@@ -47,13 +47,8 @@ const notes = [
   },
 ];
 
-const onSelectNotePreview = (
-  note: object,
-  index: number,
-  navigation: object
-) => {
-  console.log(navigation.getState());
-  navigation.navigate('Configuration');
+const onSelectNotePreview = (note: object, index: number, navigation: any) => {
+  navigation.navigate('NoteDetail', { index, ...note });
 };
 
 const NotesPreview = (): JSX.Element => {
