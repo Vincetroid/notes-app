@@ -7,56 +7,22 @@ const styles = StyleSheet.create({
   desc: {},
 });
 
-const notes = [
-  {
-    title: 'Llamarle al señor de la luz',
-    description:
-      'Hacerlo a las 3pm, Hacerlo a las 3pm, Hacerlo a las 3pm, Hacerlo a las 3pm, Hacerlo a las 3pm, Hacerlo a las 3pm, Hacerlo a las 3pm, Hacerlo a las 3pm, Hacerlo a las 3pm, LOREM IPSUM',
-  },
-  {
-    title: 'Jugar Gears of war',
-    description: 'Hacerlo a las 6pm',
-  },
-  {
-    title: 'Jugar Gears of war',
-    description: 'Hacerlo a las 6pm',
-  },
-  {
-    title: 'Jugar Gears of war',
-    description: 'Hacerlo a las 6pm',
-  },
-  {
-    title: 'Jugar Gears of war',
-    description: 'Hacerlo a las 6pm',
-  },
-  {
-    title: 'Jugar Gears of war',
-    description: 'Hacerlo a las 6pm',
-  },
-  {
-    title: 'Jugar Gears of war',
-    description: 'Hacerlo a las 6pm',
-  },
-  {
-    title: 'Jugar Gears of war',
-    description: 'Hacerlo a las 6pm',
-  },
-  {
-    title: 'Jugar Gears of war',
-    description: 'Hacerlo a las 6pm',
-  },
-];
+type Note = {
+  title: string;
+  description: string;
+  create_timestamp: number;
+};
 
 const onSelectNotePreview = (note: object, index: number, navigation: any) => {
   navigation.navigate('NoteDetail', { index, ...note });
 };
 
-const NotesPreview = (): JSX.Element => {
+const NotesPreview = ({ notes }: Array<Note>): JSX.Element => {
   const navigation = useNavigation();
 
   return (
     <>
-      {notes.map((note, i) => (
+      {notes.map((note: Note, i: number) => (
         <TouchableOpacity
           onPress={() => onSelectNotePreview(note, i, navigation)}
         >
